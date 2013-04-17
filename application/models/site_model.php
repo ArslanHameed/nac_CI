@@ -98,5 +98,141 @@ class Site_model extends CI_Model {
 		);
 		$query=$this->db->insert(TBL_USERS,$data);
 	}
+	
+	function insert_temp_personal($session_id){
+$phone_no = $this->input->post('phoneNumber');
+$formatted_ph_no = preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "$1-$2-$3", $phone_no);
+$alt_phone_no = $this->input->post('altPhoneNumber');
+$formatted_alt_no = preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "$1-$2-$3", $alt_phone_no);
+
+	$data= array(
+	'session_id' 	=> $session_id,
+	'title' 		=> $this->input->post('title'),
+	'first_name' 	=> $this->input->post('firstName'),
+	'sur_name' 		=> $this->input->post('surName'),
+	'day' 			=> $this->input->post('day'),
+	'month' 		=> $this->input->post('month'),
+	'year' 			=> $this->input->post('year'),
+	'pref_phone_no' => $formatted_ph_no,
+	'alt_phone_no' 	=> $formatted_alt_no,
+	'email' 		=> $this->input->post('emailAddress'),
+	'number' 		=> $this->input->post('number'),
+	'street' 		=> $this->input->post('street'),
+	'suburb' 		=> $this->input->post('suburb'),
+	'state' 		=> $this->input->post('state'),
+	'postcode' 		=> $this->input->post('postcode'),
+	'country' 		=> $this->input->post('country'),
+	'position'		=> $this->input->post('position'),
+	);
+	
+	$query = $this->db->insert('temp_register',$data);
+
+
+		
+	}
+	
+	function update_temp_personal($session_id){
+$phone_no = $this->input->post('phoneNumber');
+$formatted_ph_no = preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "$1-$2-$3", $phone_no);
+$alt_phone_no = $this->input->post('altPhoneNumber');
+$formatted_alt_no = preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "$1-$2-$3", $alt_phone_no);
+
+	$data= array(
+	'session_id' 	=> $session_id,
+	'title' 		=> $this->input->post('title'),
+	'first_name' 	=> $this->input->post('firstName'),
+	'sur_name' 		=> $this->input->post('surName'),
+	'day' 			=> $this->input->post('day'),
+	'month' 		=> $this->input->post('month'),
+	'year' 			=> $this->input->post('year'),
+	'pref_phone_no' => $formatted_ph_no,
+	'alt_phone_no' 	=> $formatted_alt_no,
+	'email' 		=> $this->input->post('emailAddress'),
+	'number' 		=> $this->input->post('number'),
+	'street' 		=> $this->input->post('street'),
+	'suburb' 		=> $this->input->post('suburb'),
+	'state' 		=> $this->input->post('state'),
+	'postcode' 		=> $this->input->post('postcode'),
+	'country' 		=> $this->input->post('country'),
+	'position'		=> $this->input->post('position'),
+	);
+	$this->db->where('session_id', $session_id);
+	$query = $this->db->update('temp_register',$data);
+
+
+		
+	}
+	
+	function insert_temp_qualification($session_id){
+		
+		$data= array(
+		
+		'country_of_reg' 		=> $this->input->post('countryNurse'),
+		'country_of_training' 	=> $this->input->post('countryTraining'),
+		'experience' 			=> $this->input->post('experience'),
+		'pref_location' 		=> $this->input->post('prefLocation'),
+		
+		);
+		$this->db->where('session_id',$session_id);
+		$query = $this->db->update('temp_register',$data);
+		/*$data= array(
+		
+		'country_of_reg' 		=> 1,
+		'country_of_training' 	=> 'traiing',
+		'experience' 			=> '2',
+		'pref_location' 		=> '3',
+		
+		);
+		$this->db->where('session_id',$session_id);
+		$query = $this->db->update('temp_register',$data);*/
+		//echo $query;
+		
+	}
+	
+	function insert_temp_clinical($session_id){
+		
+		$data= array(
+		'cannulation' => $this->input->post('cannulation'),
+		'PaediatricsNeonatal' => $this->input->post('paediatricsNeonatal'),
+		'Triage' => $this->input->post('triage'),
+		'Cardiac' => $this->input->post('cardiac'),
+		'Venepuncture' => $this->input->post('venepuncture'),
+		'CommunityNursing' => $this->input->post('communityNursing'),
+		'Sutering' => $this->input->post('sutering'),
+		'OperatingTheatre' => $this->input->post('operatingTheatre'),
+		'VentilatorCompetent' => $this->input->post('ventilatorCompetent'),
+		'AgedCare' => $this->input->post('agedCare'),
+		'AdvancedCardiacLifeSupport' => $this->input->post('advCardLifeSupport'),
+		'Midwifery' => $this->input->post('midwifery'),
+		'Defibrillation' => $this->input->post('defibrillation'),
+		'Medical' => $this->input->post('medical'),
+		'scrub' => $this->input->post('Scrub'),
+		'MentalHealth' => $this->input->post('mentalHealth'),
+		'Anaesthetic' 	=> $this->input->post('anaesthetic'),
+		'other' 		=> $this->input->post('other'),
+		'other1' => $this->input->post('option1'),
+		'other2' => $this->input->post('option2'),
+		'other3' => $this->input->post('option3'),
+		'xrays' => $this->input->post('x-rays'),
+		'DeliverySuite' => $this->input->post('deliverySuite'),
+		'IntensiveCare' => $this->input->post('intensiveCare'),
+		'AccidentEmergency' => $this->input->post('accEmergency')
+		);
+		
+		$this->db->where('session_id',$session_id);
+		$query = $this->db->update('temp_register',$data);
+		
+		
+		
+	}
+	
+	function get_temp_user_details($session_id){
+		
+
+		$this->db->where('session_id',$session_id);
+		$query = $this->db->get('temp_register');
+		return $query->result();
+		
+	}
 }
 ?>

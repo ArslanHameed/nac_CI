@@ -1,7 +1,69 @@
+<script src="http://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+//1st tab edit
+		$('#edit_personal').click(function(){
+			
+						$('.forth_tab').fadeOut('slow','linear');
+						$('.first_tab').fadeIn('slow','linear');
+						
+						$('.scnd_tab').css('display', 'none' );
+						$('.third_tab').css('display', 'none' );
+						$('.forth_tab').css('display', 'none' );
+						$('#forth').removeClass('active');
+						$('#first').addClass('active');
+						
+						document.getElementById('prog').innerHTML = "<img src='<?php echo base_url(); ?>assets/images/first_progress.png' />";
+				  
+			
+		});//end click
+		
+		//2nd tab edit
+		$('#edit_qualify').click(function(){
+						$('.forth_tab').fadeOut('slow','linear');
+						$('.scnd_tab').fadeIn('slow','linear');
+							
+						$('.first_tab').css('display', 'none' );
+						$('.scnd_tab').css('display', 'block' );
+						$('.third_tab').css('display', 'none' );
+						$('.forth_tab').css('display', 'none' );
+						$('#forth').removeClass('active');
+						$('#scnd').addClass('active');
+						
+						document.getElementById('prog').innerHTML = "<img src='<?php echo base_url(); ?>assets/images/thrd_progress.png' />";
+
+						$("html, body").animate({ scrollTop: 0 }, 800);
+				  
+			
+		});//end click
+		
+		//3rd tab edit
+		$('#edit_clinical').click(function(){
+						$('.forth_tab').fadeOut('slow','linear');
+						$('.third_tab').fadeIn('slow','linear');
+							
+						$('.first_tab').css('display', 'none' );
+						$('.scnd_tab').css('display', 'none' );
+						$('.third_tab').css('display', 'block' );
+						$('.forth_tab').css('display', 'none' );
+						$('#forth').removeClass('active');
+						$('#third').addClass('active');
+						
+						document.getElementById('prog').innerHTML = "<img src='<?php echo base_url(); ?>assets/images/thrd_progress.png' />";
+
+						$("html, body").animate({ scrollTop: 0 }, 800);
+				  
+			
+		});//end click
+});
+</script>
 <form name="register4" method="post" id="register4" action="#">
+		<?php foreach($temp_user_details as $details){ ?>
                             	<div class="details_box">
                                     <h2 class="review_heading">Personal Details</h2>
-                                    <a href="#">Edit</a>
+                                    <a id="edit_personal">Edit</a>
                                     <div class="fields_box">
                                     	
                                             <div class="check_label_short">
@@ -10,18 +72,7 @@
                                          
                                          
                                             <div class="check_label_long">
-                                                <label><?php 
-												//$title = $this->session->userdata('TITLE');
-												echo $data_input['title']." ".$data_input['sur_name'];
-												$surname = $this->session->userdata('SURNAME');
-												$firstname = $this->session->userdata('FIRSTNAME');
-												
-												if(!empty($title)){ print_r($title).' '; }
-												
-												if(!empty($surname)){  print_r($surname).' '; }
-												if(!empty($firstname)){ print_r($firstname).' '; }  ?>
-                                                
-                                                </label>
+                                                <label><?php echo $details->title."  ".$details->first_name."  ".$details->sur_name; ?></label>
                                             </div>
                                        
                                   	</div>
@@ -34,12 +85,7 @@
                                          
                                             <div class="check_label_long">
                                                 <label><?php
-												$day = $this->session->userdata('DAY');
-												$month = $this->session->userdata('MONTH');
-												$year = $this->session->userdata('YEAR');
-												 if(!empty($day)) echo $day.'/';
-												if(!empty($month)) echo $month.'/';
-												if(!empty($year)) echo $year; ?></label>
+											echo $details->day."/".$details->month."/".$details->year;?></label>
                                             </div>
                                        
                                   	</div>
@@ -51,9 +97,7 @@
                                          
                                          
                                             <div class="check_label_long">
-                                                <label><?Php
-												$phoneno = $this->session->userdata('PHONENUMBER');
-												 if(!empty($phoneno)) echo $phoneno; ?></label>
+                                                <label><?Php echo $details->pref_phone_no; ?></label>
                                             </div>
                                        
                                   	</div>
@@ -65,9 +109,7 @@
                                          
                                          
                                             <div class="check_label_long">
-                                                <label><?Php
-												$altphoneno = $this->session->userdata('ALTPHONENUMBER');
-												 if(!empty($altphoneno)) echo $altphoneno; ?></label>
+                                                <label><?Php echo $details->alt_phone_no; ?></label>
                                             </div>
                                        
                                   	</div>
@@ -79,9 +121,7 @@
                                          
                                          
                                             <div class="check_label_long">
-                                                <label><?Php
-												$email = $this->session->userdata('EMAILADDRESS'); 
-												if(!empty($email)) echo $email; ?></label>
+                                                <label><?Php echo $details->email; ?></label>
                                             </div>
                                        
                                   	</div>
@@ -93,15 +133,7 @@
                                          
                                          
                                             <div class="check_label_long">
-                                                <label><?php
-												$number = $this->session->userdata('NUMBER');
-												$street = $this->session->userdata('STREET');
-												$country = $this->session->userdata('COUNTRY');
-												$postcode = $this->session->userdata('POSTCODE'); 
-												if(!empty($number)) echo $number.' ';
-												if(!empty($street)) echo $street.', ';
-												if(!empty($country)) echo $country.', ';
-												 if(!empty($postcode)) echo $postcode; ?></label>
+                                                <label><?php echo $details->number."  ".$details->street.",".$details->country.",".$details->postcode; ?></label>
                                             </div>
                                        
                                   	</div>
@@ -114,39 +146,31 @@
                             
                             <div class="details_box">
                                     <h2 class="review_heading">Qualifications</h2>
-                                    <a href="#">Edit</a>
+                                    <a id="edit_qualify">Edit</a>
                                     <div class="fields_box"> 
                                             <div class="check_label_long">
-                                                <label>I'm registered as a Nurses in <?Php 
-											$countrynurse = $this->session->userdata('COUNTRYNURSE');
-											if(!empty($countrynurse)) echo $countrynurse; ?></label>
+                                                <label>I'm registered as a Nurses in <?Php echo $details->country_of_reg; ?></label>
                                             </div>
                                        
                                   	</div>
                                      <div class="fields_box">
                                     	
                                             <div class="check_label_long">
-                                                <label>I completed my medical training in <?Php 
-									$countrytraining = $this->session->userdata('COUNTRYTRAINING');
-												if(!empty($countrytraining)) echo $countrytraining; ?></label>
+                                                <label>I completed my medical training in <?Php echo $details->country_of_training; ?></label>
                                             </div>
                                        
                                   	</div>
                                      <div class="fields_box">
                                  
                                             <div class="check_label_long">
-                                                <label>I hold a <?Php
-									$preflocation = $this->session->userdata('PREFLOCATION'); 
-												if(!empty($preflocation)) echo $preflocation; ?>  Passport</label>
+                                                <label>I hold a <?Php echo $details->pref_location; ?>  Passport</label>
                                             </div>
                                        
                                   	</div>
                                      <div class="fields_box">
                               
                                             <div class="check_label_long">
-                                                <label>I have <?Php
-									$exp = $this->session->userdata('PREFLOCATION');  
-												if(!empty($exp)) echo $exp; ?> Post Graduate experience</label>
+                                                <label>I have <?Php echo $details->experience; ?> Post Graduate experience</label>
                                             </div>
                                        
                                   	</div>
@@ -155,271 +179,263 @@
                             
                             <div class="details_box" style="border-bottom:0;">
                                     <h2 class="review_heading">Clinical Skills</h2>
-                                    <a href="#">Edit</a>
+                                    <a id="edit_clinical">Edit</a>
                                     <?Php
-									$cann = $this->session->userdata('CANNULATION'); 
-									if(isset($cann)) { ?>
+									
+									if($details->cannulation == '1') { ?>
                                      <div class="fields_box">
                                     		
                                             <div class="check_label_short">
                                             	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
-                                                <label><?php echo $cann; ?></label>
+                                                <label><?php echo "Cannulation"; ?></label>
                                             </div>
                                             
                                        
                                   	</div>
                                    	<?php } ?>
                                     <?Php
-									$paed = $this->session->userdata('PAEDNEON'); 
-									if(!empty($paed)) { ?>
+									if($details->PaediatricsNeonatal == '1') { ?>
                                      <div class="fields_box">
                                     		
                                             <div class="check_label_short">
                                             	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
-                                                <label><?php echo $paed; ?></label>
+                                                <label><?php echo "Paediatrics / Neonatal"; ?></label>
                                             </div>
                                             
                                        
                                   	</div>
                                    	<?php } ?>
                                      <?Php
-									 $triage  = $this->session->userdata('TRIAGE'); 
-									 if(!empty($triage)) { ?>
+									 if($details->Triage == '1') { ?>
                                      <div class="fields_box">
                                     		
                                             <div class="check_label_short">
                                             	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
-                                                <label><?php echo $triage; ?></label>
+                                                <label><?php echo "Triage"; ?></label>
                                             </div>
                                             
                                        
                                   	</div>
                                    	<?php } ?>
                                     <?Php
-									$cardiac = $this->session->userdata('CARDIAC'); 
-									if(!empty($cardiac)) { ?>
+									if($details->Cardiac == '1') { ?>
                                      <div class="fields_box">
                                     		
                                             <div class="check_label_short">
                                             	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
-                                                <label><?php echo $cardiac; ?></label>
+                                                <label><?php echo "Cardiac"; ?></label>
                                             </div>
                                             
                                        
                                   	</div>
                                    	<?php } ?>
                                     <?Php
-									$vene = $this->session->userdata('VENEPUNCTURE'); 
-									if(!empty($vene)) { ?>
+									if($details->Venepuncture == '1') { ?>
                                      <div class="fields_box">
                                     		
                                             <div class="check_label_short">
                                             	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
-                                                <label><?php echo $vene; ?></label>
+                                                <label><?php echo "Venepuncture"; ?></label>
                                             </div>
                                             
                                        
                                   	</div>
                                    	<?php } ?>
                                     <?Php
-									$com = $this->session->userdata('COMMUNITYNURSING'); 
-									if(!empty($com)) { ?>
+									if($details->CommunityNursing == '1') { ?>
                                      <div class="fields_box">
                                     		
                                             <div class="check_label_short">
                                             	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
-                                                <label><?php echo $com; ?></label>
+                                                <label><?php echo "Community Nursing"; ?></label>
                                             </div>
                                             
                                        
                                   	</div>
                                    	<?php } ?>
                                     <?Php
-									$sut  = $this->session->userdata('SUTERING'); 
-									if(!empty($sut)) { ?>
+									if($details->Sutering == '1') { ?>
                                      <div class="fields_box">
                                     		
                                             <div class="check_label_short">
                                             	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
-                                                <label><?php echo $sut; ?></label>
+                                                <label><?php echo "Sutering"; ?></label>
                                             </div>
                                             
                                        
                                   	</div>
                                    	<?php } ?>
                                     <?Php
-									$oper = $this->session->userdata('OPERATINGTHEATRE'); 
-									if(!empty($oper)) { ?>
+									if($details->OperatingTheatre == '1') { ?>
                                      <div class="fields_box">
                                     		
                                             <div class="check_label_short">
                                             	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
-                                                <label><?php echo $oper; ?></label>
+                                                <label><?php echo "Operating Theatre"; ?></label>
                                             </div>
                                             
                                        
                                   	</div>
                                    	<?php } ?>
                                     <?Php
-									$vent = $this->session->userdata('VENTILATORCOMPETENT'); 
-									if(!empty($vent)) { ?>
+									if($details->VentilatorCompetent == '1') { ?>
                                      <div class="fields_box">
                                     		
                                             <div class="check_label_short">
                                             	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
-                                                <label><?php echo $vent; ?></label>
+                                                <label><?php echo "Ventilator Competent"; ?></label>
                                             </div>
                                             
                                        
                                   	</div>
                                    	<?php } ?>
                                     <?Php
-									$age = $this->session->userdata('AGEDCARE'); 
-									if(!empty($age)) { ?>
+									if($details->AgedCare == '1') { ?>
                                      <div class="fields_box">
                                     		
                                             <div class="check_label_short">
                                             	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
-                                                <label><?php echo $age; ?></label>
+                                                <label><?php echo "Aged Care"; ?></label>
                                             </div>
                                             
                                        
                                   	</div>
                                    	<?php } ?>
                                     <?Php
-									$advcard = $this->session->userdata('ADVCARDLIFESUPPORT'); 
-									if(!empty($advcard)) { ?>
+									if($details->AdvancedCardiacLifeSupport == '1') { ?>
                                      <div class="fields_box">
                                     		
                                             <div class="check_label_short">
                                             	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
-                                                <label><?php echo $advcard; ?></label>
+                                                <label><?php echo "Advanced Cardiac Life Support"; ?></label>
                                             </div>
                                             
                                        
                                   	</div>
                                    	<?php } ?>
                                     <?Php
-									$mid = $this->session->userdata('MIDWIFERY'); 
-									if(!empty($mid)) { ?>
+									if($details->Midwifery == '1') { ?>
                                      <div class="fields_box">
                                     		
                                             <div class="check_label_short">
                                             	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
-                                                <label><?php echo $mid; ?></label>
+                                                <label><?php echo "Midwifery"; ?></label>
                                             </div>
                                             
                                        
                                   	</div>
                                    	<?php } ?>
                                     <?Php
-									$med = $this->session->userdata('MEDICAL'); 
-									if(!empty($med)) { ?>
+									if($details->Defibrillation == '1') { ?>
                                      <div class="fields_box">
                                     		
                                             <div class="check_label_short">
                                             	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
-                                                <label><?php echo $med; ?></label>
+                                                <label><?php echo "Defibrillation"; ?></label>
                                             </div>
                                             
                                        
                                   	</div>
                                    	<?php } ?>
                                     <?Php
-									$scrub  = $this->session->userdata('SCRUB'); 
-									if(!empty($scrub)) { ?>
+									if($details->Medical == '1') { ?>
                                      <div class="fields_box">
                                     		
                                             <div class="check_label_short">
                                             	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
-                                                <label><?php echo $scrub; ?></label>
+                                                <label><?php echo "Medical"; ?></label>
                                             </div>
                                             
                                        
                                   	</div>
                                    	<?php } ?>
                                     <?Php
-									$mental = $this->session->userdata('MENTALHEALTH'); 
-									if(!empty($mental)) { ?>
+									if($details->Scrub == '1') { ?>
                                      <div class="fields_box">
                                     		
                                             <div class="check_label_short">
                                             	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
-                                                <label><?php echo $mental; ?></label>
+                                                <label><?php echo "Scrub"; ?></label>
                                             </div>
                                             
                                        
                                   	</div>
                                    	<?php } ?>
                                     <?Php
-									$xray = $this->session->userdata('X_RAYS'); 
-									if(!empty($xray)) { ?>
+									if($details->MentalHealth == '1') { ?>
                                      <div class="fields_box">
                                     		
                                             <div class="check_label_short">
                                             	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
-                                                <label><?php echo $xray; ?></label>
+                                                <label><?php echo "Mental Health"; ?></label>
                                             </div>
                                             
                                        
                                   	</div>
                                    	<?php } ?>
                                     <?Php 
-									$int = $this->session->userdata('INTENSIVECARE');
-									if(!empty($int)) { ?>
+									if($details->Anaesthetic == '1') { ?>
                                      <div class="fields_box">
                                     		
                                             <div class="check_label_short">
                                             	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
-                                                <label><?php echo $int; ?></label>
-                                            </div>
-                                            
-                                       
-                                  	</div>
-                                   	<?php } ?>
-                                    <?Php 
-									$accemer = $this->session->userdata('ACCEMERGENCY');
-									if(!empty($accemer)) { ?>
-                                     <div class="fields_box">
-                                    		
-                                            <div class="check_label_short">
-                                            	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
-                                                <label><?php echo $accemer; ?></label>
+                                                <label><?php echo "Anaesthetic"; ?></label>
                                             </div>
                                             
                                        
                                   	</div>
                                    	<?php } ?>
                                     <?Php
-									$def = $this->session->userdata('DEFIBRILLATION'); 
-									if(!empty($def)) { ?>
+									if($details->xrays == '1') { ?>
                                      <div class="fields_box">
                                     		
                                             <div class="check_label_short">
                                             	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
-                                                <label><?php echo $def; ?></label>
+                                                <label><?php echo "X-RAY"; ?></label>
                                             </div>
                                             
                                        
                                   	</div>
                                    	<?php } ?>
                                     <?Php
-									$del = $this->session->userdata('DELIVERYSUITE'); 
-									if(!empty($del)) { ?>
+									if($details->DeliverySuite == '1') { ?>
                                      <div class="fields_box">
                                     		
                                             <div class="check_label_short">
                                             	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
-                                                <label><?php echo $del; ?></label>
+                                                <label><?php echo "Delivery Suite"; ?></label>
+                                            </div>
+                                            
+                                       
+                                  	</div>
+                                   	<?php } ?>
+                                    <?Php
+									if($details->IntensiveCare == '1') { ?>
+                                     <div class="fields_box">
+                                    		
+                                            <div class="check_label_short">
+                                            	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
+                                                <label><?php echo "Intensive Care"; ?></label>
+                                            </div>
+                                            
+                                       
+                                  	</div>
+                                   	<?php } ?>
+                                    <?Php
+									if($details->AccidentEmergency == '1') { ?>
+                                     <div class="fields_box">
+                                    		
+                                            <div class="check_label_short">
+                                            	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
+                                                <label><?php echo "Accident Emergency"; ?></label>
                                             </div>
                                             
                                        
                                   	</div>
                                    	<?php } ?>
                                     <?Php 
-									$other = $this->session->userdata('OTHER');
-									if(!empty($other)) { ?>
-                                    <div class="fields_box">
+									if($details->other == '1') { ?>
+                                      <div class="fields_box">
                               
                                             <div class="check_label_short long">
                                                 <img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
@@ -427,46 +443,43 @@
                                             </div>
                                        
                                   	</div>
+                                   	<?php } ?>
+                                    <?Php
+									if($details->other1 != "") { ?>
+                                     <div class="fields_box">
+                                    		
+                                            <div class="check_label_short long">
+                                            	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
+                                                <label><?php echo $details->other1; ?></label>
+                                            </div>
+                                            
+                                       
+                                  	</div>
+                                   	<?php } ?>
+                                    <?Php
+									if($details->other2 != "") { ?>
+                                     <div class="fields_box">
+                                    		
+                                            <div class="check_label_short long">
+                                            	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
+                                                <label><?php echo $details->other2; ?></label>
+                                            </div>
+                                            
+                                       
+                                  	</div>
+                                   	<?php } ?>
+                                    <?Php 
+									if($details->other3 != "") { ?>
+                                    <div class="fields_box">
+                              
+                                            <div class="check_label_short long">
+                                                <img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
+                                                <label><?php echo $details->other3; ?></label>
+                                            </div>
+                                       
+                                  	</div>
             						<?php  } ?>
-                                    <?Php
-									$option1 = $this->session->userdata('OPTION1'); 
-									if(!empty($option1)) { ?>
-                                     <div class="fields_box">
-                                    		
-                                            <div class="check_label_short">
-                                            	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
-                                                <label><?php echo $option1; ?></label>
-                                            </div>
-                                            
-                                       
-                                  	</div>
-                                   	<?php } ?>
-                                    <?Php
-									$option2 = $this->session->userdata('OPTION2'); 
-									if(!empty($option2)) { ?>
-                                     <div class="fields_box">
-                                    		
-                                            <div class="check_label_short">
-                                            	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
-                                                <label><?php echo $option2; ?></label>
-                                            </div>
-                                            
-                                       
-                                  	</div>
-                                   	<?php } ?>
-                                    <?Php
-									$option3 = $this->session->userdata('OPTION3'); 
-									if(!empty($option3)) { ?>
-                                     <div class="fields_box">
-                                    		
-                                            <div class="check_label_short">
-                                            	<img src="<?php echo base_url() ?>assets/images/checked.png" alt="checked" width="18" height="15" />
-                                                <label><?php echo $option3; ?></label>
-                                            </div>
-                                            
-                                       
-                                  	</div>
-                                   	<?php } ?>
+                                    
                             </div>
                             <!-- end detaails box-->
                             	<!-- Chat Submit Box-->
@@ -482,4 +495,5 @@
                     
                                 </div>
                                 <!-- Chat Submit Box End -->
+      <?php }//end foreach ?>
                         	</form>

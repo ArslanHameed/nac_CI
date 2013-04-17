@@ -793,6 +793,7 @@ select{
 	font-family:"economicaregular";
 	color:#b4b4b4;
 	margin-top:15px;
+	cursor:pointer;
 }
 .register_box .register_tabs .forth_tab .details_box h2.review_heading{
 	float:left;
@@ -863,5 +864,6 @@ select{
 	font-family:"aller_lightitalic";
 	color:#7ac2ce;
 	text-decoration:none;
+	cursor:pointer;
 }
 /*//////Register Thanks Page CSS End//////*/

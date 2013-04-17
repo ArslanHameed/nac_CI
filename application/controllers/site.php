@@ -61,13 +61,17 @@ class Site extends CI_Controller {
 	
 	public function user_register()
 	{
+		$this->load_model();
+		/*$session_id = $this->session->userdata('session_id');
+		$data['temp_user_details'] = $this->site_model->get_temp_user_details($session_id);*/
 		$this->template->load('site/templates/site_template', 'site/register');
 	}
 	
-	public function personal_details_submitted()
+	public function personal_details_submitted($session_id = '')
 	{
+		$this->load_model();
 		
-		$this->session->set_userdata ('TITLE', $this->input->post('title'));
+		/*$this->session->set_userdata ('TITLE', $this->input->post('title'));
 		$this->session->set_userdata('FIRSTNAME',$this->input->post('firstName'));
 		$this->session->set_userdata('SURNAME',$this->input->post('surName'));
 		$this->session->set_userdata('DAY',$this->input->post('day'));
@@ -85,6 +89,8 @@ class Site extends CI_Controller {
 		$this->session->set_userdata('POSITION',$this->input->post('position'));
 		echo $this->session->userdata('TITLE');
 		echo $this->session->userdata('FIRSTNAME');
+		
+		echo $this->session->userdata('SURNAME'); */
 		
 		/*$data_input = array(
 		'title' 		=> $this->input->post('title'),
@@ -106,55 +112,65 @@ class Site extends CI_Controller {
 		);
 		print_r($data_input);*/
 		
+		$session_id = $this->session->userdata('session_id');
+		$data['temp_user_details'] = $this->site_model->get_temp_user_details($session_id);
+		if(!empty($data['temp_user_details'])){
+			$this->site_model->update_temp_personal($session_id);
+			
+		}else{
+		
+		$this->site_model->insert_temp_personal($session_id);
+		
+		}
+		return true;
 	}
 	
 	public function qualification_details_submitted()
 	{
-		$this->session->set_userdata('COUNTRYNURSE',$this->input->post('countryNurse'));
+		$this->load_model();
+		/*$this->session->set_userdata('COUNTRYNURSE',$this->input->post('countryNurse'));
 		$this->session->set_userdata('COUNTRYTRAINING',$this->input->post('countryTraining'));
 		$this->session->set_userdata('EXPERIENCE',$this->input->post('experience'));
-		$this->session->set_userdata('PREFLOCATION',$this->input->post('prefLocation'));
-		
+		$this->session->set_userdata('PREFLOCATION',$this->input->post('prefLocation'));*/
+		$session_id = $this->session->userdata('session_id');
+		$this->site_model->insert_temp_qualification($session_id);
+		return true;
 	}
 	
 	public function clinical_details_submitted()
 	{
+		$this->load_model();
 		
-		$this->session->set_userdata('CANNULATION',$this->input->post('cannulation'));
-		$this->session->set_userdata('PAEDNEON',$this->input->post('paediatricsNeonatal'));
-		$this->session->set_userdata('TRIAGE',$this->input->post('triage'));
-		$this->session->set_userdata('CARDIAC',$this->input->post('cardiac'));
-		$this->session->set_userdata('VENEPUNCTURE',$this->input->post('venepuncture'));
-		$this->session->set_userdata('COMMUNITYNURSING',$this->input->post('communityNursing'));
-		$this->session->set_userdata('SUTERING',$this->input->post('sutering'));
-		$this->session->set_userdata('OPERATINGTHEATRE',$this->input->post('operatingTheatre'));
-		$this->session->set_userdata('VENTILATORCOMPETENT',$this->input->post('ventilatorCompetent'));
-		$this->session->set_userdata('AGEDCARE',$this->input->post('agedCare'));
-		$this->session->set_userdata('ADVCARDLIFESUPPORT',$this->input->post('advCardLifeSupport'));
-		$this->session->set_userdata('MIDWIFERY',$this->input->post('midwifery'));
-		$this->session->set_userdata('DEFIBRILLATION',$this->input->post('defibrillation'));
-		$this->session->set_userdata('MEDICAL',$this->input->post('medical'));
-		$this->session->set_userdata('SCRUB',$this->input->post('scrub'));
-		$this->session->set_userdata('MENTALHEALTH',$this->input->post('mentalHealth'));
-		$this->session->set_userdata('OTHER',$this->input->post('other'));
-		$this->session->set_userdata('X_RAYS',$this->input->post('x-rays'));
-		$this->session->set_userdata('OPTION1',$this->input->post('option1'));
-		$this->session->set_userdata('OPTION2',$this->input->post('option2'));
-		$this->session->set_userdata('OPTION3',$this->input->post('option3'));
-		$this->session->set_userdata('DELIVERYSUITE',$this->input->post('deliverySuite'));
-		$this->session->set_userdata('INTENSIVECARE',$this->input->post('intensiveCare'));
-		$this->session->set_userdata('ACCEMERGENCY',$this->input->post('accEmergency'));
+		$session_id = $this->session->userdata('session_id');
 		
+		$this->site_model->insert_temp_clinical($session_id);
 		
+		$data['temp_user_details'] = $this->site_model->get_temp_user_details($session_id);
+		$this->load->view('site/forth_tab',$data);
 	}
 	
 	public function thanks_register()
 	{
+		
 		$this->template->load('site/templates/site_template', 'site/thanks_register');
 	}
 	
-	public function new_user_register(){
+	public function registration_completed(){
 		$this->load_model();
+		$this->site_model->user_register_insert();
+		$userid=$this->db->insert_id();
+		}
+		
+		
+		//email to user for account varification
+		public function get_verif_id($userid){
+		$this->load_model();
+		$data['get_users']=$this->site_model->get_user('register',$userid);
+		foreach($data['get_users'] as $user)
+		{
+			$email= $user->email;
+			$random= $user->verif_id;
+		}
 		$this->load->library('email');
 		
 		$config['charset'] = 'utf-8';
@@ -162,66 +178,88 @@ class Site extends CI_Controller {
 		$config['mailtype'] = 'html';
 		
 		$this->email->initialize($config);
+		
+		$this->email->from('nac@info', 'Nurse at Call');
+		$this->email->to($email); 
 
-
-		$this->site_model->user_register_insert();
-		$userid=$this->db->insert_id();
-						 
-		$data['get_users']=$this->site_model->get_user(TBL_USERS);
+		$this->email->subject('Verify Account');
+		$this->email->message("Please open this link in new tab to activate your account:
+		".base_url()."site/verification_account/$random");	
+		
+		if($this->email->send()){
+			$data['user_msg']="Please check your emails for activation of your account";
+		}else{
+			show_error($this->email->print_debugger());
+		}
+		$this->template->load('site/templates/site_template', 'site/thanks_register');
+		
+		}
+		
+		
+		public function verification_account($rand){
+		$this->load_model();
+		$data['get_users']=$this->site_model->get_user('register');
 		foreach($data['get_users'] as $user)
 		{
-			$email= $user->email;
-			$random= $user->verif_id;
-			$firstname = $uesr->firstname;
-			$lastname = $uesr->lastname;
-			$phone = $uesr->phone;
-			$property_name = $user->property_name;
-			$property_address = $user->address;
-			$city = $user->city;
-			$state = $user->state;
-			$zip = $user->zip;
-			$fax =$user->fax;
-			$property_contact =$user->contact_person;
-			$property_email = $user->email;
-			$password = $user->password;
-			$Management_company = $user->company;
+			$random_id=$user->verif_id;
 		}
 		
-		$this->email->from(FROM_NO_REPLY, 'NAC');
-		$this->email->to($email);  
+
+			
+				if($random_id===$rand){
+					$this->load->library('email');
+		
+					$config['charset'] = 'utf-8';
+					$config['wordwrap'] = TRUE;
+					$config['mailtype'] = 'html';
+					
+					$this->email->initialize($config);
+					
+					$this->email->from('ac_verify@info', 'Nurse at Call');
+					$this->email->to('admin@info'); 
+					
+					$this->email->subject('Verify Account');
+					
+					$this->email->message("account activation:
+					".base_url()."site/active_account/$random");	
+					
+					if($this->email->send()){
+						$data['user_msg'] = "your account is verified so please wait for admin approval to login in our system" ;
+					}
 	
-		
-		$this->email->subject('Account Instructions');
-		$this->email->message("An Account has been created:<br />
-		Please allow One Business Day for your account to be activated");	
-		
-		if($this->email->send()){
-			$data['user_msg']="Please check your email to proceed";
-			$this->session->set_userdata ('register_date',date('Y-m-d'));
-		}
-		else{
-			show_error($this->email->print_debugger());
-			}	
-			
-			$message .=  "<br> <a href='". base_url() ."admin/users_list'>Click here</a> to activate account.";
-			
-		
-	//	$this->email->mailtype("html");
-		$this->email->from(FROM_NO_REPLY, 'NAC');
-		$this->email->to(FOR_REGISTER); 
-		$this->email->cc("nac@123.com");
-		//staff@zerflin.com
-		
-		$this->email->subject($lastname ." ". $firstname .' has submitted a request for Registration Approval');
-		$this->email->message($message);
-		if($this->email->send()){
-			true;
-		}
-		else{
-			show_error($this->email->print_debugger());
+
+				else{
+				$data['msg']="Sorry your account is not verified ";
+				}
 			}
-		//$data['user_msg']="Please check your email for verification of your account and then you can login";
-		$this->template->load('site/templates/site_template', 'site/login',$data);		
-		
 		}
+			
+		public function active_account($rand){
+			$this->load_model();
+			$data['get_user_email']=$this->site_model->account_activation($rand);
+		
+		foreach($data['get_user_email'] as $user)
+		{
+			$email= $user->email;
+		}
+			
+			$this->load->library('email');
+		
+					$config['charset'] = 'utf-8';
+					$config['wordwrap'] = TRUE;
+					$config['mailtype'] = 'html';
+					
+					$this->email->initialize($config);
+					
+					$this->email->from('admin@info', 'Nurse at Call');
+					$this->email->to($email); 
+					
+					$this->email->subject('Account Varification Completed');
+					
+					$this->email->message("Your Account has been activated.:
+					".base_url()."site/index");	
+		
+					$this->email->send();
+				
+			}	
 }
