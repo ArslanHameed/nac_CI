@@ -1,6 +1,6 @@
 <?php 
 
-class Site extends CI_Controller {
+class Register extends CI_Controller {
 	
 	private function load_model(){
 		$this->load->model('site_model');
@@ -64,7 +64,7 @@ class Site extends CI_Controller {
 		$this->load_model();
 		/*$session_id = $this->session->userdata('session_id');
 		$data['temp_user_details'] = $this->site_model->get_temp_user_details($session_id);*/
-		$this->template->load('site/templates/site_template', 'site/register');
+		$this->template->load('site/templates/site_template', 'site/register_view');
 	}
 	
 	public function personal_details_submitted($session_id = '')
@@ -146,13 +146,13 @@ class Site extends CI_Controller {
 		$this->site_model->insert_temp_clinical($session_id);
 		
 		$data['temp_user_details'] = $this->site_model->get_temp_user_details($session_id);
-		$this->load->view('site/forth_tab',$data);
+		$this->load->view('site/forth_tab_view',$data);
 	}
 	
 	public function thanks_register()
 	{
 		
-		$this->template->load('site/templates/site_template', 'site/thanks_register');
+		$this->template->load('site/templates/site_template', 'site/thanks_register_view');
 	}
 	
 	public function registration_completed(){

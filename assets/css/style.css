@@ -102,18 +102,24 @@ table {
 .header-wrapper .header nav{
 	margin-top: 30px;
 	border-bottom: 1px solid #a2abaf;
-	padding-bottom: 15px;
 	float: left;
+	padding-bottom:10px;
 }
 .header-wrapper .header nav ul li{
 	float: left;
 	padding: 0px 18px;
+	
 }
+
 .header-wrapper .header nav ul li a{
 	text-decoration: none;
 	color: #535353;
 	font-size: 20px;
 	font-family: "economicabold";
+	padding-bottom:5px;
+}
+.header-wrapper .header nav ul li a:hover{
+	border-bottom:5px solid #535353;
 }
 .header-wrapper .header .logo{
 	margin-right: 38px;
@@ -130,6 +136,7 @@ table {
 	margin: 20px 0px 0px 0px;
 	float: left;
 }
+
 .main-content-wrapper{
 	width: 100%;
 	float: left;
@@ -561,7 +568,8 @@ table {
 .register_box .register_tabs .first_tab .details_box .fields_box, 
 .register_box .register_tabs .scnd_tab .details_box .fields_box,
 .register_box .register_tabs .third_tab .details_box .fields_box,
-.register_box .register_tabs .forth_tab .details_box .fields_box{
+.register_box .register_tabs .forth_tab .details_box .fields_box,
+.contact_box .right_box .mail_box .fields_box{
 	width:100%;
 	float:left;
 	margin: 10px 0;
@@ -663,7 +671,10 @@ select{
 .register_box .first_tab .submit_box .chat, .thanks_box .thanks_text .chat,
 .register_box .scnd_tab .submit_box .chat, .thanks_box .thanks_text .chat,
 .register_box .third_tab .submit_box .chat, .thanks_box .thanks_text .chat,
-.register_box .forth_tab .submit_box .chat, .thanks_box .thanks_text .chat{
+.register_box .forth_tab .submit_box .chat, .thanks_box .thanks_text .chat,
+.contact_box .social_links .chat,
+.contact_box .social_links .fb,
+.contact_box .social_links .twitter{
 	width:250px;
 	float:left;
 	position:relative;
@@ -673,7 +684,10 @@ select{
 .register_box .first_tab .submit_box .chat a, .thanks_box .thanks_text .chat a,
 .register_box .scnd_tab .submit_box .chat a, .thanks_box .thanks_text .chat a,
 .register_box .third_tab .submit_box .chat a, .thanks_box .thanks_text .chat a,
-.register_box .forth_tab .submit_box .chat a, .thanks_box .thanks_text .chat a{
+.register_box .forth_tab .submit_box .chat a, .thanks_box .thanks_text .chat a,
+.contact_box .social_links .chat a,
+.contact_box .social_links .fb a,
+.contact_box .social_links .twitter a{
 	width:auto;
 	height:29px;
 	display:block;
@@ -688,8 +702,8 @@ select{
 .register_box .first_tab .submit_box .btn,
 .register_box .scnd_tab .submit_box .btn,
 .register_box .third_tab .submit_box .btn,
-.register_box .forth_tab .submit_box .btn
-{
+.register_box .forth_tab .submit_box .btn,
+.contact_box .right_box .mail_box .btn{
 	width:120px;
 	float:right;
 	position:relative;
@@ -697,7 +711,8 @@ select{
 .register_box .first_tab .submit_box .btn .sbmt_btn,
 .register_box .scnd_tab .submit_box .btn .sbmt_btn,
 .register_box .third_tab .submit_box .btn .sbmt_btn,
-.register_box .forth_tab .submit_box .btn .sbmt_btn{
+.register_box .forth_tab .submit_box .btn .sbmt_btn,
+.contact_box .right_box .mail_box .sbmt_btn{
 	width:110px;
 	float:left;
 	padding:10px 25px;
@@ -867,3 +882,300 @@ select{
 	cursor:pointer;
 }
 /*//////Register Thanks Page CSS End//////*/
+/*//////Contact Page CSS//////*/
+.banner_contact{
+	width:965px;
+	height:296px;
+	margin:0 auto;
+	background:url(../images/contact_banner.png) no-repeat;
+	
+}
+.contact{
+	background:none;
+	height:296px;
+}
+.contact_box{
+	width:97%;
+	float:left;
+	padding: 30px 20px;
+	padding-bottom:115px;
+	background:url(../images/image_bottom.png) no-repeat center bottom;
+}
+.contact_box .social_links{
+	width:585px;
+	float:left;
+	margin-top:-80px;
+}
+.contact_box .social_links .chat, .contact_box .social_links .fb, .contact_box .social_links .twitter{
+	width:205px;
+	padding-left:0;
+	margin-left:0;
+}
+ .contact_box .social_links .fb, .contact_box .social_links .twitter{
+ 	width:175px;
+ }
+.contact_box .social_links .fb a{
+	padding-left:25px;
+	color:#4b4b4b;
+	background:url(../images/fb_icon.png) no-repeat;
+}
+.contact_box .social_links .twitter a{
+	padding-left:25px;
+	color:#4b4b4b;
+	background:url(../images/twitter_icon.png) no-repeat;
+}
+.contact_box .left_box{
+	width: 615px;
+	float:left;
+	position:relative;
+}
+.contact_box .left_box .address_desc{
+	width:100%;
+	float:left;
+	border-bottom:1px dotted #bfbebe;
+	padding:10px 0;
+}
+.contact_box .left_box .address_desc p{
+	color: #4b4b4b;
+	font-size:16px;
+	font-family: "aller_lightregular";
+	margin:10px 0;
+	line-height:20px;
+	text-align:center;
+}
+.contact_box .left_box .loc_contact_box{
+	width:100%;
+	float:left;
+	padding:30px 0;
+}
+.contact_box .left_box .loc_contact_box .loc_box{
+	width:178px;
+	float:left;
+	position:relative;
+	margin-right:40px;
+}
+.contact_box .left_box .loc_contact_box .loc_box_last{
+	margin-right:0;
+}
+.contact_box .left_box .loc_contact_box .loc_box .loc_icon{
+	width:72px;
+	height:73px;
+	margin:0 auto;
+}
+.contact_box .left_box .loc_contact_box .loc_box .loc_details{
+	width:100%;
+	float:left;
+	margin-top:15px;
+}
+.contact_box .left_box .loc_contact_box .loc_box .loc_details span{
+	font-size:18px;
+	font-family: "aller_lightregular";
+	line-height:30px;
+	text-align:center;
+	color:#71beca;
+	font-weight:bold;
+	display:block;
+}
+.contact_box .left_box .loc_contact_box .loc_box .loc_details address{
+	color: #4b4b4b;
+	font-size:14px;
+	font-family: "aller_lightregular";
+	line-height:20px;
+	text-align:center;
+	display:block;
+}
+.contact_box .left_box .mail_address{
+	width:100%;
+	float:left;
+	margin:10px 0;
+}
+.contact_box .left_box .mail_address p{
+	color: #4b4b4b;
+	font-size:16px;
+	font-family: "aller_lightregular";
+	margin:10px 0;
+	line-height:20px;
+	text-align:center;	
+}
+.contact_box .left_box .mail_address p span{
+	color:#71beca;
+}
+.contact_box .right_box{
+	width:230px;
+	float:left;
+	position:relative;
+	margin-left: 20px;
+	border:1px solid #c2c2c2;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding:30px;
+}
+.contact_box .right_box .mail_box{
+	width:97%;
+	float:left;
+	
+}
+.contact_box .right_box .mail_box h2{
+	font-size:28.98px;
+	font-family:"economicaregular";
+	font-weight: normal;
+	color:#4b4b4b;
+	margin-bottom:10px;
+}
+.contact_box .right_box .mail_box .fields_box{
+	margin:5px 0;
+}
+.contact_box .right_box .mail_box .btn{
+	float:left;
+}
+.text_field_contact{
+	margin-left:0;
+	width:205px;
+}
+.contact_persons_box{
+	width:100%;
+	float:left;
+	padding:30px;
+	margin-top:60px;
+}
+.contact_persons_box .contact_keys_box{
+	width:100%;
+	float:left;
+}
+.contact_persons_box .contact_keys_box h2{
+	font-size:28.98px;
+	font-family:"economicaregular";
+	font-weight: normal;
+	color:#4b4b4b;
+	margin-bottom:10px;
+}
+.contact_persons_box .contact_keys_box .personal_box_wrapper{
+	width:100%;
+	float:left;
+}
+.contact_persons_box .contact_keys_box .personal_box_wrapper .personal_box{
+	width:465px;
+	float:left;
+	position:relative;
+	margin-left:20px;
+	margin-top:40px;
+	min-height:256px;
+}
+.contact_persons_box .contact_keys_box .personal_box_wrapper .left_side{
+	margin-left:0
+}
+.contact_persons_box .contact_keys_box .personal_box_wrapper .personal_box .personal_img{
+	width:106px;
+	height:136px;
+	float:left;
+	position:relative;
+	margin-right:20px;
+}
+.contact_persons_box .contact_keys_box .personal_box_wrapper .personal_box .personal_details{
+	width:320px;
+	float:left;
+	position:relative;
+}
+.contact_persons_box .contact_keys_box .personal_box_wrapper .personal_box .personal_details h3{
+	font-size:16px;
+	font-family: "aller_lightregular";
+	font-weight:bold;
+	color:#3485ba;
+	margin:5px 0;
+}
+.contact_persons_box .contact_keys_box .personal_box_wrapper .personal_box .personal_details span{
+	font-size:12px;
+	font-family: "aller_lightregular";
+	display:block;
+	color:#4b4b4b;
+	line-height:15px;
+}
+.contact_persons_box .contact_keys_box .personal_box_wrapper .personal_box .personal_details p{
+	color: #4b4b4b;
+	font-size:14px;
+	font-family: "aller_lightregular";
+	margin:10px 0;
+	line-height:20px;
+	text-align:justify;
+}
+/*//////Contact Page CSS END//////*/
+/*//////Midvives Page CSS start//////*/
+.midvives_box{
+	width: 910px;
+	float:left;
+	padding:25px;
+}
+.midvives_box .mid_desc_box{
+	width:100%;
+	float:left;
+}
+.midvives_box .mid_desc_box h1{
+	font-size:42px;
+	font-family:"economicaregular";
+	margin:15px 0;
+	color:#3397c4;
+	font-weight:normal;
+}
+.midvives_box .mid_desc_box .midvives_text{
+	width:254px;
+	float:left;
+	position:relative;
+}
+.midvives_box .mid_desc_box .midvives_text h2{
+	font-size:24px;
+	font-weight:normal;
+	color:#4b4b4b;
+	font-family:"economicaregular";
+	
+}
+.midvives_box .mid_desc_box .midvives_text p{
+    color: #4b4b4b;
+	font-size:14px;
+	font-family: "aller_lightregular";
+	margin:10px 0;
+	line-height:20px;
+	text-align:justify;
+}
+.midvives_box .mid_desc_box .midvives_img{
+	width: 656px;
+	height:505px;
+	float:right;
+	position:relative;
+	background:url(../images/midvives_main.png) no-repeat;
+	margin-top:-25px;
+}
+.midvives_box .mid_desc_box .midvives_img .benefits_box{
+	width:280px;
+	float:right;
+	position:relative;
+	margin-top:50px;
+}
+.midvives_box .mid_desc_box .midvives_img .benefits_box h2{
+	font-size:20px;
+	font-family:"aller_lightregular";/*//Font change to LinotypeFeltpen required///*/
+	margin:10px 0;
+	color:#2d3032;
+}
+.midvives_box .mid_desc_box .midvives_img .benefits_box ul.benefits{
+	width:97%;
+	float:left;
+}
+.midvives_box .mid_desc_box .midvives_img .benefits_box ul.benefits li{
+	width:90%;
+	display:block;
+	background:url(../images/benefit_tick.png) no-repeat -1px;
+	width:100%;
+	line-height:18px;
+	float:left;
+	margin-top:10px;
+	font-family:"aller_lightregular";/*//Font change to LinotypeFeltpen required///*/
+	font-size:14px;
+	color:#3a4448;
+	padding-left:25px;
+}
+.midvives_box .chat_register_box{
+	
+}
+
+/*//////Midvives Page CSS END//////*/

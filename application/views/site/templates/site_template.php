@@ -15,7 +15,7 @@
         	<ul>
             	<li><span class="ico-chat"></span><a href="#">Live Chat</a></li>
                 <li><a href="#">Login</a></li>
-                <li style="border:0px;"><a href="<?php echo base_url(); ?>site/user_register">Register</a></li>
+                <li style="border:0px;"><a href="<?php echo base_url(); ?>register/user_register">Register</a></li>
             </ul>
         </div>
     </div>
@@ -31,7 +31,7 @@
                 <li><a href="#">Midwives</a></li>
                 <li><a href="#">Vacancies</a></li>
                 <li><a href="#">TESTIMONIALS</a></li>
-                <li style="padding-right:0px;"><a href="#">Contact</a></li>
+                <li style="padding-right:0px;"><a href="<?php echo base_url(); ?>contact/index">Contact</a></li>
             </ul>
         </nav>
         <div class="logo">
