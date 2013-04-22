@@ -26,16 +26,16 @@
 	<div class="header">
     	<nav>
         	<ul>
-            	<li style="padding-left:0px;"><a href="#">Why become A Travel nurse?</a></li>
-                <li><a href="#">Nurses</a></li>
-                <li><a href="#">Midwives</a></li>
+            	<li style="padding-left:0px;"><a href="<?php echo base_url(); ?>travel">Why become A Travel nurse?</a></li>
+                <li><a href="<?php echo base_url(); ?>nurses">Nurses</a></li>
+                <li><a href="<?php echo base_url(); ?>midvives">Midwives</a></li>
                 <li><a href="#">Vacancies</a></li>
-                <li><a href="#">TESTIMONIALS</a></li>
-                <li style="padding-right:0px;"><a href="<?php echo base_url(); ?>contact/index">Contact</a></li>
+                <li><a href="<?php echo base_url(); ?>testimonial">TESTIMONIALS</a></li>
+                <li style="padding-right:0px;"><a href="<?php echo base_url(); ?>contact">Contact</a></li>
             </ul>
         </nav>
         <div class="logo">
-        	<a href="#"><img src="<?php echo base_url(); ?>assets/images/logo.png" alt="" /></a>
+        	<a href="<?php echo base_url() ?>register"><img src="<?php echo base_url(); ?>assets/images/logo.png" alt="" /></a>
         </div>
     </div>
 </div>

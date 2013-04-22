@@ -1065,6 +1065,7 @@ select{
 .contact_persons_box .contact_keys_box .personal_box_wrapper .left_side{
 	margin-left:0
 }
+
 .contact_persons_box .contact_keys_box .personal_box_wrapper .personal_box .personal_img{
 	width:106px;
 	height:136px;
@@ -1105,6 +1106,9 @@ select{
 	width: 910px;
 	float:left;
 	padding:25px;
+	padding-bottom:115px;
+	background:url(../images/image_bottom.png) no-repeat center bottom;
+
 }
 .midvives_box .mid_desc_box{
 	width:100%;
@@ -1122,14 +1126,14 @@ select{
 	float:left;
 	position:relative;
 }
-.midvives_box .mid_desc_box .midvives_text h2{
+.midvives_box .mid_desc_box .midvives_text h2, .midvives_box .posts_box .post .post_summary h2{
 	font-size:24px;
 	font-weight:normal;
 	color:#4b4b4b;
 	font-family:"economicaregular";
 	
 }
-.midvives_box .mid_desc_box .midvives_text p{
+.midvives_box .mid_desc_box .midvives_text p, .midvives_box .posts_box .post .post_summary p{
     color: #4b4b4b;
 	font-size:14px;
 	font-family: "aller_lightregular";
@@ -1137,7 +1141,7 @@ select{
 	line-height:20px;
 	text-align:justify;
 }
-.midvives_box .mid_desc_box .midvives_img{
+.midvives_box .mid_desc_box .midvives_img, .midvives_box .mid_desc_box .nurses_img{
 	width: 656px;
 	height:505px;
 	float:right;
@@ -1145,23 +1149,29 @@ select{
 	background:url(../images/midvives_main.png) no-repeat;
 	margin-top:-25px;
 }
-.midvives_box .mid_desc_box .midvives_img .benefits_box{
+.midvives_box .mid_desc_box .midvives_img .benefits_box,
+.midvives_box .mid_desc_box .nurses_img .benefits_box{
 	width:280px;
 	float:right;
 	position:relative;
 	margin-top:50px;
 }
-.midvives_box .mid_desc_box .midvives_img .benefits_box h2{
+.midvives_box .mid_desc_box .midvives_img .benefits_box h2,
+.midvives_box .mid_desc_box .nurses_img .benefits_box h2{
 	font-size:20px;
 	font-family:"aller_lightregular";/*//Font change to LinotypeFeltpen required///*/
 	margin:10px 0;
 	color:#2d3032;
 }
-.midvives_box .mid_desc_box .midvives_img .benefits_box ul.benefits{
+.midvives_box .mid_desc_box .midvives_img .benefits_box ul.benefits,
+.midvives_box .mid_desc_box .nurses_img .benefits_box ul.benefits,
+.trav_benefit_content .trav_benefit_box .trav_benefit_list ul.benefits{
 	width:97%;
 	float:left;
 }
-.midvives_box .mid_desc_box .midvives_img .benefits_box ul.benefits li{
+.midvives_box .mid_desc_box .midvives_img .benefits_box ul.benefits li,
+.midvives_box .mid_desc_box .nurses_img .benefits_box ul.benefits li,
+.trav_benefit_content .trav_benefit_box .trav_benefit_list ul.benefits li{
 	width:90%;
 	display:block;
 	background:url(../images/benefit_tick.png) no-repeat -1px;
@@ -1175,7 +1185,455 @@ select{
 	padding-left:25px;
 }
 .midvives_box .chat_register_box{
+	width: 100%;
+	float:left;
+	position:relative;
+	padding:10px 0;
+}
+.midvives_box .chat_register_box .chat_register_links,
+.travel_banner_wrapper .chat_register_links
+{
+	width:320px;
+	float: right;
+	position:relative;
+	padding:5px;
+}
+.midvives_box .chat_register_box .chat_register_links a,
+.midvives_box .chat_register_box .chat_register_links span,
+.travel_banner_wrapper .chat_register_links a,
+.travel_banner_wrapper .chat_register_links span{
+	width:auto;
+	float:left;
+	position:relative;
+	color:#2dbfcc;
+	font-weight:bold;
+	font-size:18px;
+	font-family:"economicaregular";
+	text-decoration:none;
+	padding-top:9px;
+}
+.midvives_box .chat_register_box .chat_register_links span,
+.travel_banner_wrapper .chat_register_links span{
+	padding:0 10px;
+	color:#596166;
+	padding-top:9px;
+}
+.midvives_box .chat_register_box .chat_register_links a.register_link,
+.travel_banner_wrapper .chat_register_links a.register_link{
+	background:#2dbfcc;
+	padding:10px 20px;
+	color:white;
+	text-decoration:none;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;	
+}
+.midvives_box .posts_box{
+	width:100%;
+	float:left;
+	position:relative;
+	padding:50px 0;
+}
+.midvives_box .posts_box .post{
+	width: 283px;
+	float:left;
+	position:relative;
+	margin-right:30px;
+}
+.midvives_box .posts_box .post .post_thumbnail{
+	width:283px;
+	height:158px;
+	float:left;
+}
+.midvives_box .posts_box .post .post_summary{
+	width:100%:
+	float: left;
+}
+.midvives_box .posts_box .post .post_summary h2{
+	margin:25px 0;
+	float:left;
+	width:100%;
+}
+.midvives_box .posts_box .post .post_summary a{
+	font-family: "alleritalic";
+	font-size: 13px;
+	line-height: 18px;
+	color:#2dbfcc;	
+	margin-top: 10px;
+	text-decoration:none;
+}
+.midvives_box .posts_box .right_side{
+	margin-right:0;
+}
+.midvives_pre_footer{
+	width:100%;
+	float:left;
+	height:196px;
+	margin-top:70px;
+	background:url(../images/midwives_prefooter_bg.png) no-repeat;
+}
+.midvives_pre_footer a{
+	display: block;
+	position: relative;
+	width: 160px;
+	float: left;
+	cursor: pointer;
+	top: 100px;
+	left: 400px;
+	height: 40px;
+	text-decoration:none;
+}
+/*//////Midvives Page CSS END//////*/
+/*//////Nurses Page CSS Start//////*/
+.midvives_box .mid_desc_box .nurses_text{
+	width:420px;
+}
+.midvives_box .mid_desc_box .nurses_text p{
+	margin-top:20px;
+}
+.midvives_box .mid_desc_box .nurses_text .register_text_img{
+	width:224px;
+	height:156px;
+	float: left;
+	position:relative;
+	margin-top:10px;
+}
+.midvives_box .mid_desc_box .nurses_text .register_text{
+	width:196px;
+	float:right;
+	position:relative;
+	margin-top:10px;
+}
+.midvives_box .mid_desc_box .nurses_img{
+	background:url(../images/nurses_main_img.png) no-repeat;
+	width:483px;
+	height:486px;
+	margin-top:-70px;
+}
+.midvives_box .mid_desc_box .nurses_img .benefits_box{
+	margin-right:20px;
+}
+.midvives_box .mid_desc_box .nurses_text h2{
+	margin-top:30px;
+}
+.midvives_box .mid_desc_box .nurses_img .benefits_box ul.benefits li{
+	background:url(../images/benefit-nurses-tick.png) no-repeat -1px;
+}
+/*//////Nurses Page CSS END//////*/
+/*//////Travel Nurse Page CSS Start//////*/
+.travel_banner_wrapper{
+	background:url(../images/banner_travel.png) no-repeat top center;
+	height:529px;
+}
+.travel_banner_wrapper .chat_register_links{
+	top:453px;
+	right:225px;
+	width:345px;
+}
+.travel_banner_wrapper .chat_register_links a{
+	background: url(../images/chat_icon.png) no-repeat;
+	padding-left: 30px;	
+}
+.travel_content{
+	width:100%;
+	float:left;
+	border-bottom:1px solid #f0f0f0;
+	margin-top:40px;
+	padding-left:30px;
+}
+.travel_content .travel_content_text{
+	width:730px;
+	float:left;
+	position:relative;
+}
+.travel_content .travel_content_text h2{
+	color : #3397c4;
+	font-size:32.5px;
+	font-weight:normal;
+	font-family:"economicaregular";
+	margin:20px 0;
+}
+.travel_content .travel_content_text p{
+	color: #4b4b4b;
+	font-size:14px;
+	font-family: "aller_lightregular";
+	margin:10px 0;
+	line-height:20px;
+	text-align:justify;	
+}
+.travel_content .travel_content_text span{
+	color:#4b4b4b;
+	font-weight:bold;
+	font-size:14px;
+	margin-top:20px;
+	display:block;
+	font-family: "aller_lightregular";
+}
+.travel_content .travel_content_img{
+	width:190px;
+	height:257px;
+	float: right;
+	position:relative;
+}
+.trav_benefit_content{
+	width:100%;
+	float:left;
+	position:relative;
+	padding:70px 0;
+	background:url(../images/image_bottom.png) no-repeat center bottom;
+}
+.trav_benefit_content .trav_benefit_box{
+	width:100%;
+	float:left;
+	position:relative;
+}
+.trav_benefit_content .trav_benefit_box .trav_benefit_img{
+	width:325px;
+	height:384px;
+	float:left;
+	position:relative;
+}
+.trav_benefit_content .trav_benefit_box .trav_benefit_text{
+	width:285px;
+	float:left;
+	position:relative;
+}
+.trav_benefit_content .trav_benefit_box .trav_benefit_text h2{
+	color:#4b4b4b;
+	font-size:32.5px;
+	font-weight:normal;
+	font-family:"economicaregular";
+	margin:20px 0;
+}
+.trav_benefit_content .trav_benefit_box .trav_benefit_text p{
+	color: #4b4b4b;
+	font-size:14px;
+	font-family: "aller_lightregular";
+	margin:10px 0;
+	line-height:20px;
+	text-align:justify;	
+}
+.trav_benefit_content .trav_benefit_box .trav_benefit_list{
+	width:320px;
+	float:left;
+	position:relative;
+	margin-left:30px;
+	margin-top:15px;
+}
+.trav_benefit_content .weeks_contracts_box{
+	width:800px;
+	float:left;
+	position:relative;
+	margin-top:0;
+	margin-left:125px;
+}
+.trav_benefit_content .weeks_contracts_box .weeks_contract_text{
+	width:680px;
+	float:left;
+	position:relative;
+	margin-top:35px;
+}
+.trav_benefit_content .weeks_contracts_box .weeks_contract_text span{
+	font-size:14px;
+	font-family: "aller_lightregular";
+	font-weight:bold;
+	color:#000000;
+	text-align:center;
+	display:block;	
+}
+.trav_benefit_content .weeks_contracts_box .contract_icon{
+	width:104px;
+	height:102px;
+	float:right;
+	position:relative;
+}
+.notes_div{
+	width:875px;
+	float:left;
+	position:relative;
+	padding:40px 40px;
+}
+.notes_div h2{
+	color : #3397c4;
+	font-size:32.5px;
+	font-weight:normal;
+	font-family:"economicaregular";
+	margin:20px 0;
+}
+.notes_div p{
+	color: #4b4b4b;
+	font-size:14px;
+	font-family: "aller_lightregular";
+	margin:10px 0;
+	line-height:20px;
+	text-align:justify;	
 	
 }
+.sticky_notes_box{
+	width:97%;
+	float:left;
+	position:relative;
+	padding-left:40px;
+}
+.sticky_notes_box .sticky_note{
+	width:210px;
+	float:left;
+	position:relative;
+	padding:30px 25px;
+	height:220px;
+	margin-left:60px;
+	margin-top:40px;
+	background:url(../images/sticky_note_bg.png) no-repeat;
+}
+.sticky_notes_box .left_side{
+	margin-left:0;
+}
+.sticky_notes_box .sticky_note h2{
+	font-size:22px;
+	font-family:"aller_lightitalic";/* font required */
+	color:#2c3339;
+	margin:10px 0;
+}
+.sticky_notes_box .sticky_note p{
+	font-size:12px;
+	font-family: "aller_lightregular";
+	margin:10px 0;
+	line-height:20px;
+	text-align:justify;	
+	color:#65747a;
+}
+.sticky_notes_box .sticky_note a{
+	display:block;
+	color:#3ac2cf;
+	text-decoration:none;
+	font-family:"aller_lightitalic";
+	font-weight:bold;
+	text-decoration:none;
+	font-size:12px;
+}
+.sticky_notes_box .sticky_note span{
+	color:#65747a;
+	font-weight:bold;
+	font-family:"aller_lightitalic";
+	font-size:12px;
+}
+.travel_pre_footer{
+	width:100%;
+	float:left;
+	position:relative;
+	height:363px;
+	margin-top:-265px;
+	background: url(../images/travel_pre_footer_bg.png) no-repeat;
+}
+/*//////Travel Nurse Page CSS END//////*/
+/*//////Testimonial Page CSS start//////*/
+.banner_testimonial{
+	width:965px;
+	height:420px;
+	margin:0 auto;
+	background:url(../images/banner_testimonial.png) no-repeat;	
+}
+.testimonial{
+	background:none;
+}
+.test_video_box{
+	width:620px;
+	position:relative;
+	top:340px;
+	left:20px;
+}
+.test_video_box .test_video{
+	width:98px;
+	float:left;
+	position:relative;
+}
+.test_video_box .test_line{
+	width:522px;
+	float:left;
+	position:relative;
+}
+.test_video_box .test_line p{
+	color:#596166;
+	font-size:18px;
+	font-family:"economicaregular";
+	margin:20px 0;
+	font-weight:bold;
+}
+.testimonial_content{
+	width:840px;
+	float:left;
+	position:relative;
+	padding:60px 60px;
+	background: url(../images/image_bottom.png) no-repeat bottom center;
+}
+.testimonial_content .testimonial_box{
+	width:100%;
+	float:left;
+	position:relative;
+	margin-top:40px;
+}
+.testimonial_content .testimonial_box .testimonial_owner{
+	width:140px;
+	float:left;
+	position:relative;
+}
+.testimonial_content .testimonial_box .testimonial_owner p,
+.testimonial_content .testimonial_box .testimonial_owner p.address,
+.testimonial_content .testimonial_box .testimonial_owner p.date{
+	font-size:18px;
+	font-family:"economicaregular";
+	color:#679ec9;
+	text-align:right;
+	font-weight:bold;
+	margin:4px 0;
+}
+.testimonial_content .testimonial_box .testimonial_owner p.address{
+	color:#65747a;
+}
+.testimonial_content .testimonial_box .testimonial_owner p.date{
+	color:#9a9fa1;
+	font-family: "aller_lightitalic";
+	font-size:14px;
+	font-weight:normal;
+}
+.testimonial_content .testimonial_box .testimonial_owner img{
+	float:right;
+}
+.testimonial_content .testimonial_box .testimonial_text{
+	width:660px;
+	float:left;
+	position:relative;
+	margin-left:40px;
+	border-bottom:1px solid #f0f0f0;
+	padding-bottom:30px;
+}
+.testimonial_content .testimonial_box .testimonial_text p{
+	font-family: "aller_lightitalic";
+	font-size:14px;
+	color:#65747a;
+	line-height:20px;
+	text-align:justify;
+	
+}
+.testimonial_pre_footer{
+	width:100%;
+	float:left;
+	height:231px;
+	background:url(../images/testimonial_pre_footer.png) no-repeat;
+	margin-top:40px;
+	
+}
+.testimonial_pre_footer a{
+	display: block;
+	position: relative;
+	width: 155px;
+	float: left;
+	cursor: pointer;
+	top: 115px;
+	height: 40px;
+	text-decoration: none;
+	left: 732px;
+	padding: 4px 0;
+}
+/*//////Testimonial Page CSS end//////*/
 
-/*//////Midvives Page CSS END//////*/

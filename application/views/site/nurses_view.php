@@ -6,17 +6,23 @@
         <div class="midvives_box">
         	<!-- mid_desc_box Start -->
             <div class="mid_desc_box">
-            	<h1>Midvives</h1>
+            	<h1>Become a Travel Nurse</h1>
         	
-                <div class="midvives_text">
-                	<p>Register your interest today to become a part of the Nurse at Call family. Be remunerated as a true professional, have the time of your life and make a difference to the lives of those around you!<br />
+                <div class="midvives_text nurses_text">
+                	<p>Register your interest today to become a part of the Nurse at Call family. Be remunerated as a true professional, have the time of your life and make a difference to the lives of those around you!</p>
+                    <p>
 Upon completion of the registration process, one of our recruiters will contact you promptly to assess your skills and to discuss suitable positions working within beautiful Australia.</p>
 					<h2>Who should register</h2>
+                    	<div class="register_text_img">
+                        	<img src="<?php echo base_url() ?>assets/images/nurses_text_img.png" alt="" />
+                        </div>
+						<div class="register_text">
                     <p>If you are a qualified midwife, wish to expand the horizons of your career, enjoy having fun whilst meeting new people, and have a thirst for an adventure, then becoming a travel nurse in Australia is for you!</p>
+                    </div>
                 	                
                 </div>
                 
-                <div class="midvives_img">
+                <div class="nurses_img">
                 
                 	<div class="benefits_box">
                         <h2>Unparalleled Benefits</h2>
@@ -106,4 +112,5 @@ Upon completion of the registration process, one of our recruiters will contact 
 
 <div class="midvives_pre_footer">
 	<a href="#"></a>
+  
 </div>
