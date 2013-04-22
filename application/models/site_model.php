@@ -234,5 +234,123 @@ $formatted_alt_no = preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "$1-$2-$3", $alt_p
 		return $query->result();
 		
 	}
+	
+	function get_register_user_details($last_insert_id){
+		
+
+		$this->db->where('id',$last_insert_id);
+		$query = $this->db->get('register');
+		return $query->result();
+		
+	}
+
+	
+	function user_register_insert($user_detail){
+		$rand = md5(uniqid(rand()));
+		
+		foreach($user_detail as $user){
+			
+			$title 			= 		$user->title;
+			$first_name 	= 		$user->first_name;
+			$sur_name 		= 		$user->sur_name;
+			$day 			= 		$user->day;
+			$month 			= 		$user->month;
+			$year 			= 		$user->year;
+			$pref_phone_no 	= 		$user->pref_phone_no;
+			$alt_phone_no 	= 		$user->alt_phone_no;
+			$email 			= 		$user->email;
+			$number 		= 		$user->number;
+			$street 		= 		$user->street;
+			$suburb 		= 		$user->suburb;
+			$state 			= 		$user->state;
+			$postcode 		= 		$user->postcode;
+			$country 		= 		$user->country;
+			$position 		= 		$user->position;
+			$country_of_reg = 		$user->country_of_reg;
+			$country_of_training = 	$user->country_of_training;
+			$experience 	= 		$user->experience;
+			$pref_location 	= 		$user->pref_location;
+			$cannulation 	= 		$user->cannulation;
+			$PaediatricsNeonatal = 	$user->PaediatricsNeonatal;
+			$Triage 		= 		$user->Triage;
+			$Cardiac 	= 		$user->Cardiac;
+			$Venepuncture 	= 		$user->Venepuncture;
+			$CommunityNursing = 	$user->CommunityNursing;
+			$Sutering 		= 		$user->Sutering;
+			$VentilatorCompetent = 	$user->VentilatorCompetent;
+			$AgedCare 		= 		$user->AgedCare;
+			$AdvancedCardiacLifeSupport = $user->AdvancedCardiacLifeSupport;
+			$Midwifery 		= 		$user->Midwifery;
+			$Defibrillation = $user->Defibrillation;
+			$Medical 		= 		$user->Medical;
+			$Scrub 			= 		$user->Scrub;
+			$MentalHealth 	= 		$user->MentalHealth;
+			$Anaesthetic 	= 		$user->Anaesthetic;
+			$other 			= 		$user->other;
+			$other1 		= 		$user->other1;
+			$other2 		= 		$user->other2;
+			$other3 		= 		$user->other3;
+			$xrays 			= 		$user->xrays;
+			$DeliverySuite 	= 		$user->DeliverySuite;
+			$IntensiveCare 	= 		$user->IntensiveCare;
+			$AccidentEmergency = 	$user->AccidentEmergency;
+
+						
+			}
+		$data = array(
+			'title' 		=> 		$title,
+			'first_name' 	=> 		$first_name,
+			'sur_name' 		=> 		$sur_name,
+			'day' 			=> 		$day,
+			'month' 		=> 		$month,
+			'year' 			=> 		$year,
+			'pref_phone_no' => 		$pref_phone_no,
+			'alt_phone_no' 	=> 		$alt_phone_no,
+			'email' 		=> 		$email,
+			'number' 		=> 		$number,
+			'street' 		=> 		$street,
+			'suburb' 		=> 		$suburb,
+			'state' 		=> 		$state,
+			'postcode' 		=> 		$postcode,
+			'country' 		=> 		$country,
+			'position' 		=> 		$position,
+			'country_of_reg' => 	$country_of_reg,
+			'country_of_training' => $country_of_training,
+			'experience' 	=> 		$experience,
+			'pref_location' => 		$pref_location,
+			'cannulation' 	=> 		$cannulation,
+			'PaediatricsNeonatal' => $PaediatricsNeonatal,
+			'Triage' 		=> 		$Triage,
+			'Cardiac' 		=> 		$Cardiac,
+			'Venepuncture' 	=> 		$Venepuncture,
+			'CommunityNursing' => $CommunityNursing,
+			'Sutering' 		=> 		$Sutering,
+			'VentilatorCompetent' => $VentilatorCompetent,
+			'AgedCare' 		=> 		$AgedCare,
+			'AdvancedCardiacLifeSupport' => $AdvancedCardiacLifeSupport,
+			'Midwifery' 	=> 		$Midwifery,
+			'Defibrillation' => 	$Defibrillation,
+			'Medical' 		=> 		$Medical,
+			'Scrub' 		=> 		$Scrub,
+			'MentalHealth' 	=> 		$MentalHealth,
+			'Anaesthetic' 	=>		$Anaesthetic,
+			'other' 		=> 		$other,
+			'other1'	 	=> 		$other1,
+			'other2' 		=> 		$other2,
+			'other3' 		=> 		$other3,
+			'xrays' 		=> 		$xrays,
+			'DeliverySuite' => 		$DeliverySuite,
+			'IntensiveCare' => 		$IntensiveCare,
+			'AccidentEmergency' => 	$AccidentEmergency,
+			'random'		=>		$rand,
+			'status'		=>		0,
+			);
+		
+		return  $this->db->insert('register',$data);
+		
+			
+		}
+
+
 }
 ?>

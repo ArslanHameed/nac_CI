@@ -157,20 +157,26 @@ class Register extends CI_Controller {
 	
 	public function registration_completed(){
 		$this->load_model();
-		$this->site_model->user_register_insert();
-		$userid=$this->db->insert_id();
-		}
+		$session_id = $this->session->userdata('session_id');
+		$data['temp_user_details'] = $this->site_model->get_temp_user_details($session_id);
+		$user_detail = $data['temp_user_details'];
+		$this->site_model->user_register_insert($user_detail);
+		$last_user_id = $this->db->insert_id();
+		$user_detail  = $this->site_model->get_register_user_details($last_user_id);
+		foreach($user_detail as $user){
+			 $rand_id = $user->random;
+			 $email = $user->email;
+			}
+			
+			
+		$this->get_verif_id($rand_id, $email);
 		
+		
+		}
 		
 		//email to user for account varification
-		public function get_verif_id($userid){
+		public function get_verif_id($rand_id, $email){
 		$this->load_model();
-		$data['get_users']=$this->site_model->get_user('register',$userid);
-		foreach($data['get_users'] as $user)
-		{
-			$email= $user->email;
-			$random= $user->verif_id;
-		}
 		$this->load->library('email');
 		
 		$config['charset'] = 'utf-8';
@@ -184,7 +190,7 @@ class Register extends CI_Controller {
 
 		$this->email->subject('Verify Account');
 		$this->email->message("Please open this link in new tab to activate your account:
-		".base_url()."site/verification_account/$random");	
+		".base_url()."site/verification_account/$rand_id");	
 		
 		if($this->email->send()){
 			$data['user_msg']="Please check your emails for activation of your account";
@@ -195,6 +201,11 @@ class Register extends CI_Controller {
 		
 		}
 		
+		public function user_login(){
+			$this->load_model();
+			$this->load->view('site/login');
+		}
+		
 		
 		public function verification_account($rand){
 		$this->load_model();
@@ -202,6 +213,7 @@ class Register extends CI_Controller {
 		foreach($data['get_users'] as $user)
 		{
 			$random_id=$user->verif_id;
+			$email  = $this->email;
 		}
 		
 
@@ -209,6 +221,7 @@ class Register extends CI_Controller {
 				if($random_id===$rand){
 					$this->load->library('email');
 		
+
 					$config['charset'] = 'utf-8';
 					$config['wordwrap'] = TRUE;
 					$config['mailtype'] = 'html';
@@ -237,7 +250,7 @@ class Register extends CI_Controller {
 		public function active_account($rand){
 			$this->load_model();
 			$data['get_user_email']=$this->site_model->account_activation($rand);
-		
+			$password =  uniqid();
 		foreach($data['get_user_email'] as $user)
 		{
 			$email= $user->email;
@@ -262,4 +275,6 @@ class Register extends CI_Controller {
 					$this->email->send();
 				
 			}	
+			
+				
 }

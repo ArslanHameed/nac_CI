@@ -59,7 +59,7 @@ $(document).ready(function() {
 		});//end click
 });
 </script>
-<form name="register4" method="post" id="register4" action="#">
+<form name="register4" method="post" id="register4" action="<?php echo base_url(); ?>site/registration_completed">
 		<?php foreach($temp_user_details as $details){ ?>
                             	<div class="details_box">
                                     <h2 class="review_heading">Personal Details</h2>

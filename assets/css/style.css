@@ -1637,3 +1637,263 @@ select{
 }
 /*//////Testimonial Page CSS end//////*/
 
+
+
+/*//////Vacancies Page CSS Start//////*/
+
+.banner_vacancies{
+	width:965px;
+	height:422px;
+	margin:0 auto;
+	background:url(../images/banner_vacancy.png) no-repeat;
+}
+.banner_vacancies .chat_register_links{
+	width:466px;
+	float: right;
+	position:relative;
+	padding:5px;
+	margin-left:400px;
+	margin-top:357px;
+
+	}
+.banner_vacancies .chat_register_links span{
+	width:330px;
+	float:left;
+	font-size:17px;
+	font-weight:bold;
+	font-family: "economicaregular";
+	color:#7e7e7e;
+	}
+.banner_vacancies .chat_register_links a{
+	background: #2dbfcc;
+	padding: 10px 20px;
+	color: white;
+	text-decoration: none;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin-left:4px;
+
+}	
+.vacncies{
+	background:none;
+	height:426px;
+}
+.content_vacancies_main{
+	width:960px;
+	float:left;
+	background:url(../images/image_bottom.png) no-repeat center bottom;
+	padding-bottom:115px;
+	}
+	
+.content_vacancies{
+	width:960px;
+	float:left;
+	margin:80px 0;
+}
+.content_vacancies .left_vacancies{
+	width:630px;
+	float:left;
+}
+.content_vacancies .left_vacancies h1{
+	font-size:42px;
+	font-family: "economicaregular";
+	color:#3397c4;
+	margin-bottom:20px;
+	
+}
+.content_vacancies .left_vacancies p{
+	font-size:14px;
+	font-family: "allerregular";
+	color:#65747a;
+	line-height:20px;
+	letter-spacing:1px;
+	
+}
+.content_vacancies .right_vacancies{
+	width:300px;
+	float:right;
+	
+}
+.main-content-wrapper .main-content .vacancies_box{
+	width:100%;
+	float:left;
+	margin:20px 20px 60px 20px;
+}
+.main-content-wrapper .main-content .vacancies_box .box_1{
+	float:left;
+	width:160px;
+	margin-top:15px;
+}
+.main-content-wrapper .main-content .vacancies_box .box_2{
+	float:left;
+	width:435px;
+	margin: 0 20px;
+}
+.main-content-wrapper .main-content .vacancies_box .box_2 h2{
+	width:100%;
+	font-size:16px;
+	font-family: "allerregular";
+	color:#3397c4;
+	margin-bottom:5px;
+	}
+.main-content-wrapper .main-content .vacancies_box .box_2 span, .main-content-wrapper .main-content .vacancies_box .box_2 p{
+	width:100%;
+	font-size:14px;
+	font-family: "allerregular";
+	color:#65747a;
+	line-height:20px;
+	word-spacing:-1px;
+	}	
+.main-content-wrapper .main-content .vacancies_box .box_2 p{
+	margin-top:20px;
+	width:400px;
+	text-align:justify;
+}
+.main-content-wrapper .main-content .vacancies_box .box_3{
+	width:210px;
+	float:left;
+	margin-top:75px;
+	}
+.main-content-wrapper .main-content .vacancies_box .box_3 .box_3_inner{
+	width:100%;
+	float:left;
+	margin: 3px 0;
+	}	
+.main-content-wrapper .main-content .vacancies_box .box_3 .box_3_inner img{
+	width:33px;
+	float:left;
+	}
+.main-content-wrapper .main-content .vacancies_box .box_3 .box_3_inner span{
+	width:162px;
+	float:left;
+	margin:10px 0 0 10px;
+	font-size:14px;
+	font-weight:bold;
+	font-family: "allerregular";
+	color:#65747a;
+	}
+.vacancies_pre_footer{
+	background:url(../images/vacancies_footer.png) no-repeat;
+	width:100%;
+	height:233px;
+	float:left;
+}
+.vacancies_pre_footer a{
+	width:153px;
+	height:55px;
+	float:left;
+	margin-left:699px;
+	margin-top:100px;
+	}				
+		
+/*//////Vacancies Page CSS End//////*/
+
+
+
+
+/*//////Transportation Page CSS Start//////*/
+.banner_wrapper_trans{
+	width: 100%;
+	margin: 20px 0px 0px 0px;
+	float: left;
+}
+
+.banner_wrapper_trans .banner_trans{
+	background: url(../images/transportation_banner.png) no-repeat top center;
+	width:960px;
+	height: 392px;
+	margin:0 auto;
+}
+.banner_trans .chat_register_links{
+	width:380px;
+	float: left;
+	position:relative;
+	padding:5px;
+	margin-left:126px;
+	margin-top:309px;
+
+	}
+.banner_trans .chat_register_links span{
+	width:330px;
+	float:left;
+	font-size:17px;
+	font-weight:bold;
+	font-family: "economicaregular";
+	color:#7e7e7e;
+	}
+.banner_trans .chat_register_links a{
+	background: #2dbfcc;
+	padding: 10px 20px;
+	color: white;
+	text-decoration: none;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin-left:4px;
+
+}
+.banner_wrapper_trans .banner_trans .chat_register_links .live_chat{
+	width:210px;
+	float:left;
+	margin-top:-7px;
+	}
+.banner_wrapper_trans .banner_trans .chat_register_links .live_chat a{
+	background: url(../images/chat_icon.png) no-repeat;
+	padding-left: 30px;
+	width:auto;
+	float:left;
+	position:relative;
+	color:#2dbfcc;
+	font-weight:bold;
+	font-size:18px;
+	font-family:"economicaregular";
+	text-decoration:none;
+	padding-top:9px;	
+}
+.banner_wrapper_trans .banner_trans .chat_register_links span{
+	float:left;
+	width:auto;
+	margin-right:5px;
+}
+.banner_wrapper_trans .banner_trans .chat_register_links a.register_link{
+	background:#2dbfcc;
+	padding:10px 20px;
+	color:white;
+	text-decoration:none;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px
+	}	
+.transportation_wrapper{
+	width:100%;
+	float:left;
+}
+.transportation_wrapper .transportation_content{
+	width:960px;
+	margin:0 auto;
+	padding-left:90px;
+}
+.transportation_wrapper .transportation_content h1{
+	color : #3397c4;
+	font-size:32.5px;
+	font-weight:normal;
+	font-family:"economicaregular";
+	margin:20px 0;
+
+	}		
+.transportation_wrapper .transportation_content p{
+	width:530px;
+	font-size:14px;
+	font-family: "allerregular";
+	color:#65747a;
+	line-height:20px;
+	}
+	
+	.transportation_content{
+	width: 910px;
+	padding:25px;
+	padding-bottom:170px;
+	background:url(../images/image_bottom.png) no-repeat center bottom;
+	}
+/*//////Transportation Page CSS End//////*/

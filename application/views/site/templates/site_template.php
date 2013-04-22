@@ -29,7 +29,7 @@
             	<li style="padding-left:0px;"><a href="<?php echo base_url(); ?>travel">Why become A Travel nurse?</a></li>
                 <li><a href="<?php echo base_url(); ?>nurses">Nurses</a></li>
                 <li><a href="<?php echo base_url(); ?>midvives">Midwives</a></li>
-                <li><a href="#">Vacancies</a></li>
+                <li><a href="<?php echo base_url();?>vacancies">Vacancies</a></li>
                 <li><a href="<?php echo base_url(); ?>testimonial">TESTIMONIALS</a></li>
                 <li style="padding-right:0px;"><a href="<?php echo base_url(); ?>contact">Contact</a></li>
             </ul>
